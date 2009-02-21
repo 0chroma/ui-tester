@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<iframe src="{{ page.url }}"></iframe>
+<iframe class="testframe" src="{{ page.url }}"></iframe>
 <div class="bottom">
     <form method="POST" action="/survey/logscore/">
         <input name="page_id" type="hidden" value="{{ page.id }}" />
         {% for factor in factors %}
             <div>
-                {{ factor.name }}:
+                <span class="factor_label">{{ factor.name }}:</span>
+                <span class="factor_ul">{{ factor.lower }}</span>
                 <input type="text" name="factor_{{ factor.name }}" />
+                <span class="factor_ul">{{ factor.upper }}</span>
             </div>
         {% endfor %}
         <div><input type="submit" value="Next" /></div>

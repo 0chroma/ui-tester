@@ -1,0 +1,44 @@
+
+body {
+        background:#fff url("bg.gif") repeat-x top left;
+            padding:2em 2em 2em 2em;
+}
+
+h1 {
+        font-size:2em;
+            margin:0 0 1em 0;
+}
+
+/* test page */
+iframe.testframe {
+    border: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 75%;
+    width: 100%;
+}
+
+div.bottom {
+    border-top: 1px solid #ddd;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 25%;
+    width: 100%;
+    overflow-x: auto;
+}
+
+div.bottom form {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.factor_label {
+    font-weight: bold;
+}
+
+.factor_ul {
+    font-size: 8pt;
+}

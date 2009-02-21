@@ -1,9 +1,17 @@
 {% extends "base_content.html" %}
 
+{% block extraHead %}
+<script type="text/javascript">
+(function(){
+    
+})();
+</script>
+{% endblock %}
+
 {% block content %}
     <ul>
         {% for page in pages %}
-            <li>{{ page.name }}</li>
+            <li><a href="">{{ page.name }}</a></li>
         {% endfor %}
     </ul>
     <a href="/">Back to homepage</a>

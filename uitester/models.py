@@ -16,6 +16,9 @@ admin.site.register(Page, PageAdmin)
 
 class Factor(models.Model):
     name = models.CharField(max_length=200)
+    upper = models.CharField(max_length=200)
+    lower = models.CharField(max_length=200)
+    range = models.PositiveIntegerField()
     def __str__(self):
         return self.name
 
