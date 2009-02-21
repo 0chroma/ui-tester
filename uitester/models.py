@@ -30,9 +30,6 @@ class Rating(models.Model):
     hostname = models.CharField(max_length=400)
     taken = models.DateTimeField(auto_now=True)
     finished = models.BooleanField(default=False)
-    def do_calculations(self):
-        #todo
-        pass
     def __str__(self):
         return "%s taken %s" % (self.ip, self.taken)
 

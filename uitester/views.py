@@ -88,7 +88,6 @@ def logSurveyScores(request):
     
     # when there are no more pages left, we're done.
     rating.finished=True
-    rating.do_calculations()
     rating.save()
     #todo: show confirmation message alerting that the survey is done
     return HttpResponseRedirect("/rankings/")
