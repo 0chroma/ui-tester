@@ -1,0 +1,10 @@
+{% extends "base_content.html" %}
+
+{% block content %}
+    <ul>
+        {% for page in pages %}
+            <li>{{ page.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to homepage</a>
+{% endblock %}
