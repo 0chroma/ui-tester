@@ -3,14 +3,15 @@
 <html>
 <head>
     <title>UI Tester{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.2.3/dojo/resources/dojo.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="/media/main.css" media="screen" />
-    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="http://o.aolcdn.com/dojo/1.2.3/dojo/dojo.xd.js" djConfig="parseOnLoad: true"></script>
     <script type="text/javascript">
         var uitester = {};
     </script>
     {% block extraHead %}{% endblock %}
 </head>
-<body>
+<body class="tundra">
 {% block main %}
     {% block content %}{% endblock %}
 {% endblock %}

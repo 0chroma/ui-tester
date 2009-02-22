@@ -1,17 +1,32 @@
 {% extends "base_content.html" %}
 
 {% block extraHead %}
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.2.3/dojox/widget/Dialog/Dialog.css" media="screen" />
 <script type="text/javascript">
-(function(){
-    
-})();
+    dojo.require("dojox.widget.Dialog");
+    uitester.showPopup = function(title, url){
+        var div = document.createElement("div");
+        var frame = document.createElement("iframe");
+        frame.src = url;
+        dojo.addClass(frame, "dialogFrame");
+        div.appendChild(frame);
+        var dialog = new dojox.widget.Dialog({
+			title: title,
+			dimensions: [750,650],
+			draggable:false,
+			sizeDuration:500,
+		}, div);
+        document.body.appendChild(dialog.domNode);
+		dialog.startup();
+        dialog.show();
+    };
 </script>
 {% endblock %}
 
 {% block content %}
     <ul>
         {% for page in pages %}
-            <li><a href="">{{ page.name }}</a></li>
+            <li><a href="javascript:uitester.showPopup('{{ page.name }}', '{{ page.url }}');">{{ page.name }}</a></li>
         {% endfor %}
     </ul>
     <a href="/">Back to homepage</a>

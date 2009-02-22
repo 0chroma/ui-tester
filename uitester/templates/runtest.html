@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 
+{% block extraHead %}
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.2.3/dijit/themes/tundra/tundra.css" media="screen" />
+<script type="text/javascript">
+    dojo.require("dijit.form.Slider");
+</script>
+{% endblock %}
+
 {% block content %}
 <iframe class="testframe" src="{{ page.url }}"></iframe>
 <div class="bottom">
     <form method="POST" action="/survey/logscore/">
         <input name="page_id" type="hidden" value="{{ page.id }}" />
         {% for factor in factors %}
-            <div>
+            <div class="factor">
                 <span class="factor_label">{{ factor.name }}:</span>
-                <span class="factor_ul">{{ factor.lower }}</span>
-                <input type="text" name="factor_{{ factor.name }}" />
-                <span class="factor_ul">{{ factor.upper }}</span>
+                <div type="text" dojoType="dijit.form.HorizontalSlider" name="factor_{{ factor.name }}" class="factorSlider"
+                       maximum="{{ factor.range }}" minimum="1" discreteValues="{{ factor.range }}">
+                    <div dojoType="dijit.form.HorizontalRule" container="bottomDecoration" count=5 style="height:5px;"></div>
+                    <ol dojoType="dijit.form.HorizontalRuleLabels" container="bottomDecoration" style="height:1em;font-size:75%;">
+		    			<li>{{ factor.lower }}</li>
+	    				<li>{{ factor.upper }}</li>
+    				</ol>
+                </div>
             </div>
         {% endfor %}
-        <div><input type="submit" value="Next" /></div>
+        <div><input type="submit" class="next" value="Next" /></div>
     </form>
 </div>
 {% endblock %}
