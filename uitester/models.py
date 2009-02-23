@@ -29,8 +29,8 @@ class FactorAdmin(admin.ModelAdmin):
 admin.site.register(Factor, FactorAdmin)
 
 class Rating(models.Model):
-    ip = models.IPAddressField()
-    hostname = models.CharField(max_length=400)
+    ip = models.IPAddressField(blank=True, null=True)
+    hostname = models.CharField(max_length=400, blank=True, null=True)
     taken = models.DateTimeField(auto_now=True)
     finished = models.BooleanField(default=False)
     def __str__(self):
