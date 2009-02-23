@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>UI Tester</title>
+    <link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.2.3/dojo/resources/dojo.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.2.3/dijit/themes/tundra/tundra.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/media/tests.css" media="screen" />
+    <script type="text/javascript" src="http://o.aolcdn.com/dojo/1.2.3/dojo/dojo.xd.js" djConfig="parseOnLoad: true"></script>
+    <script type="text/javascript">
+        dojo.require("dijit.ProgressBar");
+        dojo.addOnLoad(function(){
+            var bar = dijit.byId("bar");
+            var fhead = dojo.byId("fhead");
+            var f = function(){
+                dojo.style(bar.domNode, "display", "none");
+                dojo.style(fhead, "display", "block");
+            }
+            var p = 0;
+            var i = setInterval(function(){
+                p++;
+                bar.update({progress: p, maximum: 4});
+                if(p >= 4){
+                    f();
+                    clearInterval(i);
+                }
+            }, 2000);
+        });
+    </script>
+</head>
+<body class="tundra">
+   <div class="center">
+        <div dojoType="dijit.ProgressBar" id="bar"></div>
+        <h2 style="display: none; color: red;" id="fhead">Finished</h2>
+   </div>
+</body>
+</html>
+

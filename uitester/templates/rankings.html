@@ -24,6 +24,7 @@
 {% endblock %}
 
 {% block content %}
+    Test finished. Here are the pages you just saw:
     <ul>
         {% for page in pages %}
             <li><a href="javascript:uitester.showPopup('{{ page.name }}', '{{ page.url }}');">{{ page.name }}</a></li>
